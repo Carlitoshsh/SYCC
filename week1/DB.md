@@ -35,3 +35,34 @@ Table 2: Medicines
 | 3           | Advil         | 2            | $6.99          | 750               |
 | 4           | Benadryl      | 1            | $8.99          | 250               |
 | 5           | Zyrtec        | 3            | $9.99          | 100               |
+
+Retrieve All Publishers:
+
+Write an SQL query to retrieve all records from the Publishers table.
+Find Medicines by Publisher Name:
+
+Given a publisher name (e.g., “ABC Publishers”), find all medicines published by that publisher.
+Calculate Total Medicine Price:
+
+Calculate the total price of all medicines in stock.
+List Publishers with No Medicines:
+
+Identify publishers who have not published any medicines.
+Find Expensive Medicines:
+
+Retrieve medicines with a price greater than a specified value (e.g., $100).
+Join Publishers and Medicines:
+
+Write an SQL query to join the Publishers and Medicines tables, displaying the publisher name, medicine name, and quantity.
+Count Medicines per Publisher:
+
+Count the number of medicines published by each publisher.
+Update Medicine Quantity:
+
+Update the quantity of a specific medicine (e.g., increase the quantity of “Medicine X” by 50).
+Delete Publishers with No Medicines:
+
+Delete publishers who have not published any medicines.
+Find Publishers with High-Priced Medicines:
+
+Retrieve publishers who have at least one medicine with a price greater than $500.
