@@ -1,68 +1,91 @@
-Create a simple database schema for a drugstore with two tables, one for publishers and the other for medicines:
+# Desarrollo Web
 
-Table 1: Publishers
+Esta sección te guiará a través de la configuración inicial para comenzar con el desarrollo web utilizando Node.js y Express, con una base de datos SQL Server.
 
-- publisher_id: Unique identifier for each publisher.
-- publisher_name: Name of the publisher.
-- publisher_address: Address of the publisher.
+## Prerrequisitos
 
-Table 2: Medicines
+Antes de comenzar, asegúrate de tener instalado lo siguiente:
 
-- medicine_id: Unique identifier for each medicine.
-- medicine_name: Name of the medicine.
-- publisher_id: Foreign key referencing the publisher who published the medicine.
-- medicine_price: Price of the medicine.
-- medicine_quantity: Quantity of the medicine in stock.
+* **nvm (Node Version Manager):** Recomendamos encarecidamente utilizar nvm para gestionar diferentes versiones de Node.js en tu sistema. Esto evita problemas de compatibilidad entre proyectos. Puedes instalarlo desde [este enlace](https://github.com/coreybutler/nvm/releases).
+    * **Importante:** Si ya tienes Node.js instalado de forma tradicional (sin nvm), te recomendamos desinstalarlo primero para evitar conflictos. nvm gestiona sus propias versiones de Node.js de manera aislada.
 
-, here are some sample data for the two tables:
+* **Node.js (última versión LTS):** Una vez que tengas nvm instalado, puedes instalar la última versión LTS (Long Term Support) de Node.js ejecutando el siguiente comando en tu terminal:
+    ```bash
+    nvm install --lts
+    nvm use --lts
+    ```
 
-Table 1: Publishers
+## Stack Tecnológico
 
-Table 1: Publishers
+Nuestro stack tecnológico para este ejemplo incluirá:
 
-| publisher_id | publisher_name    | publisher_address                              |
-|--------------|------------------|------------------------------------------------|
-| 1            | Pfizer           | 235 E 42nd St, New York, NY 10017, United States |
-| 2            | Johnson & Johnson | 1 Johnson And Johnson Plz, New Brunswick, NJ 08933, United States |
-| 3            | Novartis         | Lichtstrasse 35, 4056 Basel, Switzerland        |
+* **Backend:** Node.js - Un entorno de ejecución de JavaScript del lado del servidor.
+* **Framework:** Express.js - Un framework web minimalista y flexible para Node.js.
+* **Base de Datos:** SQL Server - Un sistema de gestión de bases de datos relacional.
 
-Table 2: Medicines
+```mermaid
+graph LR
+    A[Usuario (Navegador)] --> B(Servidor Node.js);
+    B --> C{Express.js (Framework)};
+    C --> D[SQL Server (Base de Datos)];
+    style A fill:#f9f,stroke:#333,stroke-width:2px
+    style D fill:#ccf,stroke:#333,stroke-width:2px
+```
 
-| medicine_id | medicine_name | publisher_id | medicine_price | medicine_quantity |
-|-------------|---------------|--------------|----------------|-------------------|
-| 1           | Aspirin       | 1            | $5.99          | 1000              |
-| 2           | Tylenol       | 2            | $7.99          | 500               |
-| 3           | Advil         | 2            | $6.99          | 750               |
-| 4           | Benadryl      | 1            | $8.99          | 250               |
-| 5           | Zyrtec        | 3            | $9.99          | 100               |
+## Configuración de SQL Server
 
-Retrieve All Publishers:
+Para interactuar con SQL Server desde nuestra aplicación Node.js, necesitaremos lo siguiente:
 
-Write an SQL query to retrieve all records from the Publishers table.
-Find Medicines by Publisher Name:
+1.  **Instalación de SQL Server:** Si aún no lo tienes instalado, deberás descargar e instalar SQL Server Developer Edition (que es gratuita para desarrollo) o cualquier otra edición que prefieras. Puedes encontrar las instrucciones de instalación en el sitio web de Microsoft.
 
-Given a publisher name (e.g., “ABC Publishers”), find all medicines published by that publisher.
-Calculate Total Medicine Price:
+2.  **SQL Server Management Studio (SSMS):** Esta herramienta proporciona una interfaz gráfica para administrar tus bases de datos SQL Server. También es recomendable instalarla.
 
-Calculate the total price of all medicines in stock.
-List Publishers with No Medicines:
+3.  **Creación de una Base de Datos:** Utiliza SSMS para conectarte a tu instancia de SQL Server y crear una nueva base de datos que utilizará tu aplicación web.
 
-Identify publishers who have not published any medicines.
-Find Expensive Medicines:
+4.  **Configuración de Autenticación:** Asegúrate de tener configurado un método de autenticación (por ejemplo, autenticación de Windows o autenticación de SQL Server con un usuario y contraseña) para acceder a tu base de datos. Anota las credenciales que necesitarás en tu aplicación.
 
-Retrieve medicines with a price greater than a specified value (e.g., $100).
-Join Publishers and Medicines:
+## ¡Hola Mundo con Express!
 
-Write an SQL query to join the Publishers and Medicines tables, displaying the publisher name, medicine name, and quantity.
-Count Medicines per Publisher:
+Ahora, vamos a crear una aplicación "Hola Mundo" básica utilizando Express para verificar que nuestro entorno de Node.js está configurado correctamente.
 
-Count the number of medicines published by each publisher.
-Update Medicine Quantity:
+1.  **Crea un Nuevo Directorio:** Abre tu terminal y crea un nuevo directorio para tu proyecto:
+    ```bash
+    mkdir hola-mundo-express
+    cd hola-mundo-express
+    ```
 
-Update the quantity of a specific medicine (e.g., increase the quantity of “Medicine X” by 50).
-Delete Publishers with No Medicines:
+2.  **Inicializa el Proyecto:** Inicializa un nuevo proyecto de Node.js utilizando npm (Node Package Manager, que viene con Node.js):
+    ```bash
+    npm init -y
+    ```
+    Esto creará un archivo `package.json` en tu directorio.
 
-Delete publishers who have not published any medicines.
-Find Publishers with High-Priced Medicines:
+3.  **Instala Express:** Instala el framework Express como una dependencia de tu proyecto:
+    ```bash
+    npm install express
+    ```
 
-Retrieve publishers who have at least one medicine with a price greater than $500.
+4.  **Crea el Archivo `server.js`:** Crea un nuevo archivo llamado `server.js` en tu directorio del proyecto y pega el siguiente código:
+
+    ```javascript
+    const express = require('express');
+    const app = express();
+    const port = 3000;
+
+    app.get('/', (req, res) => {
+      res.send('¡Hola Mundo desde Express!');
+    });
+
+    app.listen(port, () => {
+      console.log(`Servidor escuchando en http://localhost:${port}`);
+    });
+    ```
+
+5.  **Ejecuta la Aplicación:** En tu terminal, dentro del directorio del proyecto (`hola-mundo-express`), ejecuta el siguiente comando para iniciar el servidor:
+    ```bash
+    node server.js
+    ```
+
+6.  **Visualiza el Resultado:** Abre tu navegador web y navega a `http://localhost:3000`. Deberías ver el mensaje "¡Hola Mundo desde Express!".
+
+¡Felicidades! Has configurado tu entorno de desarrollo con Node.js y Express, y has creado tu primera aplicación web. En las siguientes secciones, exploraremos cómo conectar tu aplicación a la base de datos SQL Server.
