@@ -6,7 +6,7 @@ Esta sección te guiará a través de la configuración inicial para comenzar co
 
 Antes de comenzar, asegúrate de tener instalado lo siguiente:
 
-* **nvm (Node Version Manager):** Recomendamos encarecidamente utilizar nvm para gestionar diferentes versiones de Node.js en tu sistema. Esto evita problemas de compatibilidad entre proyectos. Puedes instalarlo desde [este enlace](https://github.com/coreybutler/nvm/releases).
+* **nvm (Node Version Manager):** Se recomienda utilizar nvm para gestionar diferentes versiones de Node.js en tu sistema. Esto evita problemas de compatibilidad entre proyectos (algunos crean proyectos con versiones de node que nunca actualizan). Puedes instalarlo desde [este enlace](https://github.com/coreybutler/nvm/releases).
     * **Importante:** Si ya tienes Node.js instalado de forma tradicional (sin nvm), te recomendamos desinstalarlo primero para evitar conflictos. nvm gestiona sus propias versiones de Node.js de manera aislada.
 
 * **Node.js (última versión LTS):** Una vez que tengas nvm instalado, puedes instalar la última versión LTS (Long Term Support) de Node.js ejecutando el siguiente comando en tu terminal:
@@ -25,12 +25,14 @@ Nuestro stack tecnológico para este ejemplo incluirá:
 
 ```mermaid
 graph LR
-    A[Usuario (Navegador)] --> B(Servidor Node.js);
-    B --> C{Express.js (Framework)};
-    C --> D[SQL Server (Base de Datos)];
+    A["Usuario (Navegador)"] --> B(Servidor Node.js);
+    B --> C{"Express.js (Framework)"};
+    C --> D["SQL Server (Base de Datos)"];
     style A fill:#f9f,stroke:#333,stroke-width:2px
     style D fill:#ccf,stroke:#333,stroke-width:2px
 ```
+
+Proximamente añadiremos React a este Stack.
 
 ## Configuración de SQL Server
 
