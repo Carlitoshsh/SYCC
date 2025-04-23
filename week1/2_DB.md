@@ -161,7 +161,7 @@ app.listen(port, () => {
 En tu terminal, dentro del directorio del proyecto (`hola-mundo-express`), ejecuta el siguiente comando para iniciar el servidor:
 
 ```bash
-node server.js
+npm run dev
 ```
 
 #### **5. Visualiza el Resultado:**
