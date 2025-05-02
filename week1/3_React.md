@@ -13,6 +13,7 @@ Esta guía te mostrará cómo crear un nuevo proyecto React utilizando Next.js, 
     * Responde con `y` para confirmar la creación del proyecto.
     * Ingresa el nombre que desees para tu proyecto y presiona Enter.
     * Presiona Enter para aceptar las configuraciones por defecto para las demás opciones (TypeScript, ESLint, Tailwind CSS, `src` directory, App Router, etc.).
+        ![image](https://github.com/user-attachments/assets/f40dba30-1687-4577-b5df-b54ce2a1812e)
 
 3.  **Abre la carpeta del proyecto en Visual Studio Code** y realiza las siguientes modificaciones:
     * **Elimina el contenido de la carpeta `public`:** Esta carpeta contiene archivos SVG que no utilizaremos en este ejemplo. Puedes eliminar todos los archivos dentro de ella.
@@ -153,5 +154,6 @@ Esta guía te mostrará cómo crear un nuevo proyecto React utilizando Next.js, 
 
     Con estos cambios, el componente `Header` con los enlaces a Inicio, Contacto y Lista aparecerá en la parte superior de todas las páginas de tu aplicación. Al hacer clic en los enlaces, navegarás entre las páginas sin una recarga completa del navegador.
 
-    
+![image](https://github.com/user-attachments/assets/fddb1401-12f3-4178-81cf-0e515c9ebb0d)
+
 Ahora, al ejecutar tu aplicación (`npm run dev`) y visitar `http://localhost:3000/`, verás el texto "Mi primera página" y un encabezado con enlaces a "Inicio", "Contacto", y "Lista". Al hacer clic en estos enlaces, navegarás a las páginas correspondientes que muestran "Página de Contacto" y "Página de Lista" respectivamente.
